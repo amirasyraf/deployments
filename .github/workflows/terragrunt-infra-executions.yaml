@@ -22,11 +22,11 @@ permissions:
 
 env:
   TOOLS_BASE: .github/scripts
-  GITHUB_USER_TOKEN:
-  GITHUB_USER_EMAIL:
-  GITHUB_USER_NAME:
-  AWS_REGION:
-  AWS_ARN_ROLE:
+  GITHUB_USER_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+  GITHUB_USER_EMAIL: amirasyraf@outlook.com
+  GITHUB_USER_NAME: amirasyraf
+  AWS_REGION: ap-southeast-2
+  AWS_ARN_ROLE: ${{ secrets.AWS_ROLE_ARN }}
   TERRAGRUNT_ROOT: infra
 
 jobs:
