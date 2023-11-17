@@ -101,7 +101,6 @@ jobs:
           echo "\n*** Processing ${path%%/.terragrunt-cache/*}:"; \
           cd "$path" && terraform show -json "output.tfplan" | tf-summarize -tree'
 
-
   terragrunt-apply:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest

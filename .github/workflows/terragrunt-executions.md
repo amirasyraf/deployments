@@ -20,13 +20,6 @@ Triggers:
 - On 'push' to 'main' branch: terragrunt apply
 - Manual: precommit-checks && terragrunt plan
 
-Configuration (global-one-time):
-- Create secrets: PERSONAL_ACCESS_TOKEN and AWS_ARN_ROLE_OIDC_MASTER, on repository from where WF is defined.
-
-PERSONAL_ACCESS_TOKEN needs to be created from account that has access to all private repositories on maksystem organizations.
-
-AWS_ARN_ROLE_OIDC_MASTER used for Github -> AWS communication
-
 ```
 EXAMPLE:
   PERSONAL_ACCESS_TOKEN: $PAT_VALUE
