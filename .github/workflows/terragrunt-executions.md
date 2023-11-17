@@ -4,14 +4,14 @@ Workflow that is used to run pre-commit checks and terragrunt plan and terragrun
 
 ## Workflow description
 
-Name: Terragrunt execution ( terragrunt-executions.yaml )
+Name: Terragrunt execution
 
 Actions performed:
 - Checkout current repository
 - Configure AWS cli - to use specific role during GitHub -> AWS connection
 - Install asdf tool - used to install all other tools
-- Install all other tools with specified version based on [.tools-versions](https://github.com/maksystem-platform/landing-zone/blob/main/.tool-versions)
-- Setup Git credentials - needed to allow access to private repositories like maksystem-mirrors
+- Install all other tools with specified version based on .tool-versions
+- Setup Git credentials
  - Run pre-commit checks
  - Execute terragrunt run-all plan or apply (based on worklflow event)
 
