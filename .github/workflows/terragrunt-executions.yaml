@@ -43,7 +43,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: ${{ env.AWS_ARN_ROLE }}
-          role-session-name: terragrunt-exe
+          role-session-name: terragrunt
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Cache
@@ -114,7 +114,7 @@ jobs:
   #       uses: aws-actions/configure-aws-credentials@v1
   #       with:
   #         role-to-assume: ${{ env.AWS_ARN_ROLE }}
-  #         role-session-name: terragrunt-exe
+  #         role-session-name: terragrunt
   #         aws-region: ${{ env.AWS_REGION }}
 
   #     - name: Cache
