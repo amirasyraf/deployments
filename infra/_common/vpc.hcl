@@ -5,8 +5,8 @@ terraform {
 locals {}
 
 inputs = {
-  create_vpc = true
-  enable_dns_hostnames = true
-  enable_dns_support = true
+  create_vpc                = true
+  enable_dns_hostnames      = true
+  enable_dns_support        = true
   subnet_availability_zones = ["a", "b", "c"]
 }
