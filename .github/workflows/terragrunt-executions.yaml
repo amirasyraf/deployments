@@ -14,7 +14,7 @@ on:
 concurrency:
   group: environment-${{ github.ref }}-terragrunt-infra
 
-name: Terragrunt-infra execution
+name: Terragrunt Deployment
 
 permissions:
   id-token: write
