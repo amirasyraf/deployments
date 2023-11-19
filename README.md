@@ -2,7 +2,7 @@
 
 ## Workflow Overview
 
-The `deployments` repository contains all Terraform stack configuration in the form of `.hcl` files, which are used by Terragrunt, a Terraform wrapper that provides extra tools for keeping Terraform deployments DRY and other powerful features. This repository defines all the variables which are then passed as inputs to the actual Terraform codes located in the `terraform-modules` repository.
+The **deployments** repository contains all Terraform stack configuration in the form of **.hcl** files, which are used by Terragrunt, a Terraform wrapper that provides extra tools for keeping Terraform deployments DRY and other powerful features. This repository defines all the variables which are then passed as inputs to the actual Terraform codes located in the **terraform-modules** repository.
 
 The GitHub Actions workflow, **.github/workflows/terragrunt-executions.yaml**, has two modes of operations: **terragrunt-plan** which runs `terragrunt run-all plan`, and **terragrunt-apply** which runs `terragrunt run-all apply`. 
 
