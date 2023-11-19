@@ -4,7 +4,7 @@
 
 The `deployments` repository contains all Terraform stack configuration in the form of `.hcl` files, which are used by Terragrunt, a Terraform wrapper that provides extra tools for keeping Terraform deployments DRY and other powerful features. This repository defines all the variables which are then passed as inputs to the actual Terraform codes located in the `terraform-modules` repository.
 
-The GitHub Actions workflow, **.github/workflows/terragrunt-executions.yaml**, has two modes of operations: **terragrunt-plan** which runs `terragrunt run-all plan`, and **terragrunt-apply** which runs `terragrunt run-all apply`. 
+The GitHub Actions workflow, **.github/workflows/terragrunt-executions.yaml**, has two modes of operations: **terragrunt-plan** which runs `terragrunt run-all plan`, and **terragrunt-apply** which runs `terragrunt run-all apply`.
 
 **terragrunt-plan** is executed when a PR is raised against the **master** branch. This essentially runs a normal `terraform plan`, allowing the PR contributor and reviewers to review the changes. **terragrunt-apply** is only executed once the PR has been reviewed, approved, and merged.
 
@@ -17,7 +17,7 @@ The GitHub Actions workflow, **.github/workflows/terragrunt-executions.yaml**, h
 3. Terraform executes normally, by first checking for the existence of an S3 state bucket and DynamoDB table, of which it creates automatically if not found
 4. Depending on the mode of operation states in the previous section, Terraform either runs a plan or an apply against the infrastructure
 
-The steps above occurs simultaneously across all accounts defined in this repository, as Terragrunt automatically runs against all `terragrunt.hcl` configuration it finds. 
+The steps above occurs simultaneously across all accounts defined in this repository, as Terragrunt automatically runs against all `terragrunt.hcl` configuration it finds.
 
 ## Requirements
 
