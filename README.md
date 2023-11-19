@@ -10,7 +10,7 @@ The GitHub Actions workflow, **.github/workflows/terragrunt-executions.yaml**, h
 
 ### Architecture
 
-![image](https://github.com/amirasyraf/deployments/assets/15522007/1592f8f2-cdb8-4d3b-91d9-c247035b58e9)
+![image](https://github.com/amirasyraf/deployments/assets/15522007/be863b92-639f-47f9-96d5-e0cad8413b0d)
 
 1. GitHub Actions AKA workflow authenticates itself with AWS via OIDC authentication
 2. Workflow then assumes into another role, **AWSControlTowerExecution**. Based on the `account_id` defined, this may be in accounts other than the sharedservices account
