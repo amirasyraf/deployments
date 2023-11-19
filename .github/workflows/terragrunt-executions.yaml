@@ -101,48 +101,48 @@ jobs:
           echo "\n*** Processing ${path%%/.terragrunt-cache/*}:"; \
           cd "$path" && terraform show -json "output.tfplan" | tf-summarize -tree'
 
-  # terragrunt-apply:
-  #   if: github.event_name == 'push'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v3
-  #       with:
-  #         persist-credentials: false
+  terragrunt-apply:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
-  #     - name: Configure AWS CLI - Role
-  #       uses: aws-actions/configure-aws-credentials@v1
-  #       with:
-  #         role-to-assume: ${{ env.AWS_ARN_ROLE }}
-  #         role-session-name: terragrunt
-  #         aws-region: ${{ env.AWS_REGION }}
+      - name: Configure AWS CLI - Role
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ env.AWS_ARN_ROLE }}
+          role-session-name: terragrunt
+          aws-region: ${{ env.AWS_REGION }}
 
-  #     - name: Cache
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: /home/linuxbrew/.linuxbrew/
-  #         key: ${{ runner.os }}-buildx-${{ github.sha }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-buildx-
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: /home/linuxbrew/.linuxbrew/
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
 
-  #     - name: Install asdf
-  #       run: |
-  #         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  #         brew install asdf
+      - name: Install asdf
+        run: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew install asdf
 
-  #     - name: Install tools
-  #       working-directory: ${{ env.TOOLS_BASE }}
-  #       run: |
-  #         bash install-tools-asdf.sh
+      - name: Install tools
+        working-directory: ${{ env.TOOLS_BASE }}
+        run: |
+          bash install-tools-asdf.sh
 
-  #     - name: Configure Git credentials
-  #       run: |
-  #         git config --global url."https://${{ env.GITHUB_USER_TOKEN }}@github.com/".insteadOf ssh://git@github.com/
-  #         git config --global user.email ${{ env.GITHUB_USER_EMAIL }}
-  #         git config --global user.name ${{ env.GITHUB_USER_NAME }}
+      - name: Configure Git credentials
+        run: |
+          git config --global url."https://${{ env.GITHUB_USER_TOKEN }}@github.com/".insteadOf ssh://git@github.com/
+          git config --global user.email ${{ env.GITHUB_USER_EMAIL }}
+          git config --global user.name ${{ env.GITHUB_USER_NAME }}
 
-  #     - name: Execute terragrunt
-  #       working-directory: ${{ env.TERRAGRUNT_ROOT }}
-  #       run: |
-  #         . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
-  #         terragrunt run-all apply --terragrunt-non-interactive
+      - name: Execute terragrunt
+        working-directory: ${{ env.TERRAGRUNT_ROOT }}
+        run: |
+          . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+          terragrunt run-all apply --terragrunt-non-interactive
