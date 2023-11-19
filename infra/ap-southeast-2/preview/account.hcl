@@ -1,3 +1,5 @@
 locals {
-  account_id = "153902015291"
+  account_id = ""
+  account_type = "workload"
+  account_name = "preview"
 }

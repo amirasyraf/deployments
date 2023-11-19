@@ -1,3 +1,5 @@
 locals {
-  account_id = "472996451268"
+  account_id = ""
+  account_type = "sharedservices"
+  account_name = "sharedservices"
 }

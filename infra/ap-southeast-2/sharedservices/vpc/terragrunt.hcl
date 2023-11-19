@@ -1,19 +1,11 @@
 include "root" {
-  path = find_in_parent_folders("core.hcl")
+  path = find_in_parent_folders("infra.hcl")
 }
 
-terraform {
-  source = "git@github.com:amirasyraf/terraform-modules.git//module?ref=v0.0.1"
-}
-
-dependencies {
-  paths = [""]
-}
-
-locals {
-
+include "config" {
+  path = "${get_repo_root()}/infra/_common/vpc.hcl"
 }
 
 inputs = {
-  
+  vpc_cidr = "10.0.0.0/20"
 }
